@@ -5,14 +5,17 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 
 const images = [
-  { src: "/Love6.JPG", title: "Onyakachi",  name: "Chief Bridesmaid", desc: "The first time we met" },
-  { src: "/Love3.JPG", title: "First Date", desc: "Our first date" },
-  { src: "/Love24.JPG", title: "Magical Moment", desc: "A magical moment" },
-  { src: "/Love1.jpg", title: "Proposal", desc: "Saying yes to forever" },
-  { src: "/Love4.jpg", title: "Sunset Love", desc: "A beautiful sunset together" },
-  { src: "/Love5.jpg", title: "Pure Joy", desc: "Pure happiness" },
-  { src: "/Love7.jpg", title: "Laughter", desc: "Candid laughter" },
-  { src: "/Love8.jpg", title: "Stolen Kiss", desc: "A stolen kiss" },
+  { src: "/folk.JPG", title: "Obioha(Folk)",  name: "Best Man", desc: "Coolest of them all" },
+  { src: "/Love3.JPG", title: "UbokObong", name: "Groomsman", desc: "Our first date" },
+  { src: "/eze.JPG", title: "Eze", name: "Groomsman", desc:  "A magical moment" },
+  { src: "/Love1.jpg", title: "Chibuzor", name: "Groomsman", desc: "Saying yes to forever" },
+  { src: "/jeff.jpg", title: "Jeff", name: "Groomsman", desc: "A beautiful sunset together" },
+  { src: "/victor.jpg", title: "Victor", name: "Groomsman", desc: "Pure happiness" },
+  { src: "/ugonna.jpg", title: "Ugonna", name: "Groomsman", desc: "Candid laughter" },
+  { src: "/ice.jpg", title: "Anthony(ICE)", name: "Groomsman", desc: "A stolen kiss" },
+  { src: "/jet.jpg", title: "Jet", name: "Groomsman", desc: "A stolen kiss" },
+  { src: "/Love8.jpg", title: "Rotimi", name: "Groomsman", desc: "A stolen kiss" },
+  { src: "/edu.jpg", title: "Chinedu", name: "Groomsman", desc: "A stolen kiss" },
 ];
 
 export default function LoveStory() {
@@ -61,8 +64,10 @@ export default function LoveStory() {
                 <Image
                   src={item.src}
                   alt={`Love Story ${index + 1}`}
-                  layout="fill"
+                  // layout="fill"
                   objectFit="cover"
+                  height={"300"}
+                  width={"300"}
                 />
               </div>
               {/* Title */}

@@ -20,6 +20,9 @@ const images = [
   "/Love16.jpg",
   "/Love17.jpg",
   "/Love14.jpg",
+  "/Love18.jpg",
+  "/Love15.jpg",
+  "/trad1.jpg",
 
 ];
 

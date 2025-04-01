@@ -662,7 +662,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="bg-pink-500 shadow-md fixed top-0 left-0 w-full z-50">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-bold text-pink-600">Chioma & Mbiatke</h1>
+          <h1 className="text-4xl italic font-serif font-bold text-pink-600">Chioma & Mbiatke</h1>
           
           <div className="hidden md:flex space-x-8">
             {['Home', 'Story', 'Gallery', 'Gift', 'Direction'].map((item) => (
