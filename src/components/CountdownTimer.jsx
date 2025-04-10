@@ -28,7 +28,7 @@ export default function CountdownTimer() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-pink-100 text-gray-800 p-6 bg-[url('/trad1.JPG')] bg-no-repeat bg-contain bg-center bg-repeat-x">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-pink-100 text-gray-800 p-6 bg-[url('/trad1.jpg')] bg-no-repeat bg-contain bg-center bg-repeat-x">
       <h1 className="text-6xl italic font-serif font-bold text-center text-white mb-4">
         Chioma & Mbiatke ❤️
       </h1>

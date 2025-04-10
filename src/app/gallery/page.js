@@ -5,9 +5,9 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 
 const images = [
-  { src: "/folk.JPG", title: "Obioha(Folk)",  name: "Best Man", desc: "The money man 'OnyeNku', my guyest guy great guy, no dull moments ever cheerful and supportive, one of the kindest people i know... single and ready to settle down this year Amen" },
-  { src: "/oto.JPG", title: "Oto", name: "Groomsman", desc: "My guy my guy" },
-  { src: "/eze.JPG", title: "Eze", name: "Groomsman", desc:  "Cool guy with great sense of humour, doing exploits in the oil&gas sector, single and searching seriously" },
+  { src: "/folk.jpg", title: "Obioha(Folk)",  name: "Best Man", desc: "The money man 'OnyeNku', my guyest guy great guy, no dull moments ever cheerful and supportive, one of the kindest people i know... single and ready to settle down this year Amen" },
+  { src: "/oto.jpg", title: "Oto", name: "Groomsman", desc: "My guy my guy" },
+  { src: "/eze.jpg", title: "Eze", name: "Groomsman", desc:  "Cool guy with great sense of humour, doing exploits in the oil&gas sector, single and searching seriously" },
   { src: "/chibuzor.jpg", title: "Chibuzor", name: "Groomsman", desc: "Mikey my guy, great guy... our crypto guy, bill him o he has money 😂 not single not searching cos he is happily 'TAKEN'" },
   { src: "/uby.jpg", title: "Ubong", name: "Groomsman", desc: "Effi dada my guy my guy, cool guy, always smiling, enterpreneur per excellence doing great things in the city of uyo... very single and searching!!" },
   { src: "/jeff.jpg", title: "Jeff", name: "Groomsman", desc: "Officer Jato 😂 my guy, great guy, focused and purpose driven officer... not single and not searching... happily TAKEN" },

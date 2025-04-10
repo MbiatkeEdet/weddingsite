@@ -175,7 +175,7 @@ export default function Home() {
         {/* <CountdownTimer /> */}
         {/* {/* <Image */}
         <Image
-          src="/mbiatke.JPG"
+          src="/mbiatke.jpg"
           alt="Hero illustration"
           width="200"
           height="200"
@@ -189,7 +189,7 @@ export default function Home() {
 
         <div>
         <Image
-          src="/chioma.JPG"
+          src="/chioma.jpg"
           alt="Hero illustration"
           width="200"
           height="200"
