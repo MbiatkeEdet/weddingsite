@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 
 const images = [
   { src: "/folk.jpg", title: "Obioha(Folk)",  name: "Best Man", desc: "The money man 'OnyeNku', my guyest guy great guy, no dull moments ever cheerful and supportive, one of the kindest people i know... single and ready to settle down this year Amen" },
-  { src: "/oto.jpg", title: "Oto", name: "Groomsman", desc: "My guy my guy, the ladies man, realtor extraordairne" },
+  { src: "/oto.jpg", title: "Oto", name: "Groomsman", desc: "My guy my guy, the ladies man, realtor extraordinaire,life of the party,focused and purpose driven, single and seriously searching" },
   { src: "/eze.jpg", title: "Eze", name: "Groomsman", desc:  "Cool guy with great sense of humour, doing exploits in the oil&gas sector, single and searching seriously" },
   { src: "/chibuzor.jpg", title: "Chibuzor", name: "Groomsman", desc: "Mikey my guy, great guy... our crypto guy, bill him o he has money 😂 not single not searching cos he is happily 'TAKEN'" },
   { src: "/uby.jpg", title: "Ubong", name: "Groomsman", desc: "Effi dada my guy my guy, cool guy, always smiling, enterpreneur per excellence doing great things in the city of uyo... very single and searching!!" },
@@ -101,14 +101,16 @@ export default function LoveStory() {
 
 
           {/* Local Video */}
-          <div className="mt-6 max-w-3xl mx-auto">
-            <div className="relative w-full h-0 pb-[56.25%]">
-              <video className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg" controls>
-                <source src="/videos/video5.mp4" type="video/mp4" />
-          
-              </video>
-            </div>
-          </div>
+          <div className="relative w-full h-0 pb-[56.25%]">
+    <iframe
+      className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+      src="https://www.youtube.com/embed/Oqtg7NPqjfA"
+      title="YouTube video"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  </div>
           </div>
 
           <footer className="text-center py-6 text-gray-600 italic  bg-pink-500 font-serif mt-7">Made with ❤️ by Chioma & Mbiatke</footer>
