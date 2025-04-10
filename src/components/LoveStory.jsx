@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import Image from 'next/image';
 
 const images = [
-  "/Love6.JPG",
-  "/Love3.JPG",
-  "/Love24.JPG",
+  "/Love6.jpg",
+  "/Love3.jpg",
+  "/Love24.jpg",
   "/Love1.jpg",
   "/Love4.jpg",
   "/Love5.jpg",
@@ -56,7 +56,7 @@ export default function LoveStory() {
         Our Love Story
       </motion.h2>
       <p className="mt-4 max-w-2xl mx-auto italic">
-        It all started with hello! hello!! and weeks of not responding to my messages...and having to go on our first date after consitently stalking and chasing after her 😂 lol, which has turned into a lifetime of love. We can not wait to celebrate our journey with you!
+        It all started with hello! hello!! and weeks of not responding to my messages... and having to go on our first date after consistently stalking and chasing after her 😂 lol, which has turned into a lifetime of love. We can not wait to celebrate our journey with you!
       </p>
 
       {/* Scrolling Image Section */}
