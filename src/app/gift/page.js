@@ -28,13 +28,13 @@ export default function GiftPage() {
           <p className="text-gray-600 mt-2">We have registered at the following stores:</p>
           <ul className="mt-3 space-y-2">
             <li>
-              <Link href="https://www.amazon.com/wedding" target="_blank" className="text-pink-500 font-medium underline">
+              <Link href="https://www.amazon.com/wedding/registry/PJY1EGTEA7MZ" target="_blank" className="text-pink-500 font-medium underline">
                 Amazon Registry
               </Link>
             </li>
             <li>
-              <Link href="https://www.target.com/gift-registry" target="_blank" className="text-pink-500 font-medium underline">
-                Target Wedding Gifts
+              <Link href="https://mywishlistng.com/event/wedding/181817849581926603" target="_blank" className="text-pink-500 font-medium underline">
+                WishList Wedding Gifts
               </Link>
             </li>
           </ul>

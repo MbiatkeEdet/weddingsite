@@ -601,41 +601,121 @@ export default function Home() {
     }
   };
 
+  // const handleFileUpload = async (e) => {
+  //   const files = e.target.files;
+  //   if (!files || files.length === 0) return;
+
+  //   setIsUploading(true);
+  //   setUploadProgress(0);
+
+  //   try {
+  //     const uploadPromises = Array.from(files).map((file) => {
+  //       return new Promise(async (resolve, reject) => {
+  //         const storageRef = ref(storage, `wedding-uploads/${Date.now()}-${file.name}`);
+  //         const uploadTask = uploadBytesResumable(storageRef, file);
+
+  //         uploadTask.on(
+  //           "state_changed",
+  //           (snapshot) => {
+  //             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+  //             setUploadProgress(progress);
+  //           },
+  //           (error) => reject(error),
+  //           async () => {
+  //             const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+  //             resolve({ 
+  //               name: file.name, 
+  //               url: downloadURL, 
+  //               type: file.type,
+  //               size: file.size 
+  //             });
+  //           }
+  //         );
+  //       });
+  //     });
+
+  //     const uploadedFiles = await Promise.all(uploadPromises);
+  //     setUploads(prev => [...prev, ...uploadedFiles]);
+  //   } catch (error) {
+  //     console.error("Upload failed:", error);
+  //     setSubmitError("File upload failed. Please try again.");
+  //   } finally {
+  //     setIsUploading(false);
+  //   }
+  // };
+
+  // const formatFileSize = (bytes) => {
+  //   if (bytes === 0) return '0 Bytes';
+  //   const k = 1024;
+  //   const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+  //   const i = Math.floor(Math.log(bytes) / Math.log(k));
+  //   return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+  // };
+
   const handleFileUpload = async (e) => {
     const files = e.target.files;
     if (!files || files.length === 0) return;
-
+  
     setIsUploading(true);
     setUploadProgress(0);
-
+  
+    const CLOUD_NAME = "dfoeih4xx";
+    const UPLOAD_PRESET = "wbwgpzey";
+  
     try {
       const uploadPromises = Array.from(files).map((file) => {
-        return new Promise(async (resolve, reject) => {
-          const storageRef = ref(storage, `wedding-uploads/${Date.now()}-${file.name}`);
-          const uploadTask = uploadBytesResumable(storageRef, file);
+        return new Promise((resolve, reject) => {
+          // const url = `CLOUDINARY_URL=cloudinary://<567751993939671>:<u2oWKD6T4w8Y_4KIceyaA9iQyco>@dfoeih4xx`;
+          const url = `https://api.cloudinary.com/v1_1/<dfoeih4xx>/upload`;
 
-          uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          const xhr = new XMLHttpRequest();
+          const formData = new FormData();
+  
+          formData.append("file", file);
+          formData.append("upload_preset", UPLOAD_PRESET);
+          formData.append("folder", "wedding-uploads");
+  
+          xhr.open("POST", url);
+  
+          xhr.upload.addEventListener("progress", (event) => {
+            if (event.lengthComputable) {
+              const progress = (event.loaded / event.total) * 100;
               setUploadProgress(progress);
-            },
-            (error) => reject(error),
-            async () => {
-              const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-              resolve({ 
-                name: file.name, 
-                url: downloadURL, 
-                type: file.type,
-                size: file.size 
-              });
             }
-          );
+          });
+  
+          xhr.onload = () => {
+            if (xhr.status === 200) {
+              const res = JSON.parse(xhr.responseText);
+              resolve({
+                name: file.name,
+                url: res.secure_url,
+                type: file.type,
+                size: file.size,
+              });
+            // } else {
+            //   reject(new Error("Upload failed"));
+            // }
+          } else {
+            // 👇 This will show the real Cloudinary error
+            try {
+              const errorResponse = JSON.parse(xhr.responseText);
+              console.error("Cloudinary error:", errorResponse);
+              reject(new Error(`Upload failed: ${errorResponse.error.message}`));
+            } catch (parseError) {
+              console.error("Non-JSON error response from Cloudinary:", xhr.responseText);
+              reject(new Error("Upload failed with unknown error."));
+            }
+          }
+          };
+  
+          xhr.onerror = () => reject(new Error("Network error during upload"));
+          xhr.send(formData);
         });
       });
-
+  
       const uploadedFiles = await Promise.all(uploadPromises);
-      setUploads(prev => [...prev, ...uploadedFiles]);
+      setUploads((prev) => [...prev, ...uploadedFiles]);
     } catch (error) {
       console.error("Upload failed:", error);
       setSubmitError("File upload failed. Please try again.");
@@ -643,15 +723,7 @@ export default function Home() {
       setIsUploading(false);
     }
   };
-
-  const formatFileSize = (bytes) => {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
-  };
-
+  
   return (
     <div className="bg-pink-50 min-h-screen font-sans text-gray-800">
       <Head>
