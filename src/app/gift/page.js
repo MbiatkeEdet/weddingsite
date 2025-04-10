@@ -55,7 +55,7 @@ export default function GiftPage() {
           {showBankDetails && (
             <div className="mt-4 text-gray-700">
               <p><strong>Bank Name:</strong> Zenith Bank</p>
-              <p><strong>Account Name:</strong> Chioma & Mbiatke</p>
+              <p><strong>Account Name:</strong> Chioma Ndukwe</p>
               <p><strong>Account Number:</strong> 2086921200</p>
 
               <p><strong>Bank Name:</strong> Access Bank</p>
