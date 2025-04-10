@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import image from 'next/image';
+import Image from 'next/image';
 
 const images = [
   "/Love6.JPG",
@@ -65,11 +65,11 @@ export default function LoveStory() {
         className="mt-8 flex space-x-4 overflow-x-auto whitespace-nowrap scrollbar-hide"
       >
         {images.map((src, index) => (
-          <img
+          <Image
             key={index}
             src={src}
-            width={"70px"}
-            height={"60px"}
+            width={"70"}
+            height={"60"}
             alt={`Love Story ${index + 1}`}
             className="w-64 h-64 object-cover rounded-lg shadow-md"
           />
