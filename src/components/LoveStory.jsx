@@ -5,9 +5,9 @@ import Image from 'next/image';
 
 const images = [
   "/Love6.jpg",
-  "/Love3.JPG",
+  "/Love3.jpg",
   "/Love24.jpg",
-  "/Love1.JPG",
+  "/Love1.jpg",
   "/Love4.jpg",
   "/Love5.jpg",
   "/Love7.jpg",
