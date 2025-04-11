@@ -12,6 +12,7 @@ const images = [
   { src: "/uby.jpg", title: "Ubong", name: "Groomsman", desc: "Effi dada my guy my guy, cool guy, always smiling, enterpreneur per excellence doing great things in the city of uyo... very single and searching!!" },
   { src: "/jeff.jpg", title: "Jeff", name: "Groomsman", desc: "Officer Jato 😂 my guy, great guy, focused and purpose driven officer... not single and not searching... happily TAKEN" },
   { src: "/jairo.jpg", title: "Jairo", name: "Groomsman", desc: "Nwa Jai my guy,cool guy and a very funny guy, very focused and purpose drive, single and happily searching" },
+  { src: "/prince.jpg", title: "Prince", name: "Groomsman", desc: "O prince o my man, my customer 😂...great guy always cheerful, onyeoma na yankee, caring father and husband" },
   { src: "/victor.jpg", title: "Victor", name: "Groomsman", desc: "MLV 'UmuNwa'lol...great guy always cheerful and an enterpreneur per excellence, the ladies man and very single to stupor 😂" },
   { src: "/ugonna.jpg", title: "Ugonna", name: "Groomsman", desc: "Eke my guy, caring father and husband, great guy and very diligent and focused with his business," },
   { src: "/duke.jpg", title: "Duke Edoho", name: "Groomsman", desc: "Droayung like we call him, awesome guy,super cool dude,great dad and caring husband... the poetic maestro himself 😂" },
@@ -20,7 +21,7 @@ const images = [
   { src: "/jet.jpg", title: "Chiemerie", name: "Groomsman", desc: "Jetlife always looking so gentle and calm, great guy... searching but does not want to settle down 😂" },
   { src: "/rotel.jpg", title: "Rotimi", name: "Groomsman", desc: "Rotelllooo my guy great father and husband... definition of focus, doing great things" },
   { src: "/edu.jpg", title: "Chinedu", name: "Groomsman", desc: "The man with the unassuming ways 😂 great guy, father and husband to one wife, the liquor connoisseur per excellence" },
-  { src: "/nomso.jpg", title: "Nomso", name: "Groomsman", desc: "" },
+  { src: "/nomso.jpg", title: "Nomso", name: "Groomsman", desc: "Favour my guy, tallest, easy going and calm, great guy, seriously searching and ready to settle down" },
 ];
 
 export default function LoveStory() {
