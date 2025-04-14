@@ -526,6 +526,7 @@ import { getFirestore, collection, addDoc, serverTimestamp, updateDoc } from "fi
 import { Gift, Menu, X } from "lucide-react";
 import CountdownTimer from "@/components/CountdownTimer";
 import LoveStory from "@/components/LoveStory";
+import emailjs from '@emailjs/browser';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBzK7fri8FzeJMu4EycTrUfJSO9mGCungE",
@@ -588,6 +589,18 @@ export default function Home() {
           }))
         });
       }
+      // Send confirmation email
+  await emailjs.send(
+    "service_wy893rk",
+    "template_0mnycql",
+    {
+      name: rsvp.name,
+      email: rsvp.email,
+      attending: rsvp.attending,
+      guests: rsvp.guests,
+    },
+    "27G9Rs3qQ_CUp6fYH"
+  );
 
       alert(`Thank you, ${rsvp.name}! Confirmation sent to ${rsvp.email}`);
       setRsvp({ name: "", email: "", attending: "", guests: 1, message: "" });
