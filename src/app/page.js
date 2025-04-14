@@ -589,18 +589,19 @@ export default function Home() {
           }))
         });
       }
-      // Send confirmation email
-  await emailjs.send(
-    "service_wy893rk",
-    "template_0mnycql",
-    {
-      name: rsvp.name,
-      email: rsvp.email,
-      attending: rsvp.attending,
-      guests: rsvp.guests,
-    },
-    "27G9Rs3qQ_CUp6fYH"
-  );
+      await emailjs.send(
+        "service_wy893rk", // Your service ID
+        "template_hy0y50f", // Your updated template ID
+        {
+          name: rsvp.name,
+          email: rsvp.email,
+          attending: rsvp.attending,
+          guests: rsvp.guests,
+          message: rsvp.message || "No message provided.",
+        },
+        "0KWxPuCM_2K0CE9qW" // Your public key
+      );
+      
 
       alert(`Thank you, ${rsvp.name}! Confirmation sent to ${rsvp.email}`);
       setRsvp({ name: "", email: "", attending: "", guests: 1, message: "" });
@@ -673,69 +674,35 @@ export default function Home() {
     setUploadProgress(0);
   
     const CLOUD_NAME = "dfoeih4xx";
-    const UPLOAD_PRESET = "wbwgpzey";
-  
-    try {
-      const uploadPromises = Array.from(files).map((file) => {
-        return new Promise((resolve, reject) => {
-          // const url = `CLOUDINARY_URL=cloudinary://<567751993939671>:<u2oWKD6T4w8Y_4KIceyaA9iQyco>@dfoeih4xx`;
-          const url = `https://api.cloudinary.com/v1_1/<dfoeih4xx>/upload`;
+const UPLOAD_PRESET = "ml_default";
 
-          const xhr = new XMLHttpRequest();
-          const formData = new FormData();
-  
-          formData.append("file", file);
-          formData.append("upload_preset", UPLOAD_PRESET);
-          formData.append("folder", "wedding-uploads");
-  
-          xhr.open("POST", url);
-  
-          xhr.upload.addEventListener("progress", (event) => {
-            if (event.lengthComputable) {
-              const progress = (event.loaded / event.total) * 100;
-              setUploadProgress(progress);
-            }
-          });
-  
-          xhr.onload = () => {
-            if (xhr.status === 200) {
-              const res = JSON.parse(xhr.responseText);
-              resolve({
-                name: file.name,
-                url: res.secure_url,
-                type: file.type,
-                size: file.size,
-              });
-            // } else {
-            //   reject(new Error("Upload failed"));
-            // }
-          } else {
-            // 👇 This will show the real Cloudinary error
-            try {
-              const errorResponse = JSON.parse(xhr.responseText);
-              console.error("Cloudinary error:", errorResponse);
-              reject(new Error(`Upload failed: ${errorResponse.error.message}`));
-            } catch (parseError) {
-              console.error("Non-JSON error response from Cloudinary:", xhr.responseText);
-              reject(new Error("Upload failed with unknown error."));
-            }
-          }
-          };
-  
-          xhr.onerror = () => reject(new Error("Network error during upload"));
-          xhr.send(formData);
-        });
-      });
-  
-      const uploadedFiles = await Promise.all(uploadPromises);
-      setUploads((prev) => [...prev, ...uploadedFiles]);
-    } catch (error) {
-      console.error("Upload failed:", error);
-      setSubmitError("File upload failed. Please try again.");
-    } finally {
-      setIsUploading(false);
+const formData = new FormData();
+formData.append("file", files); // `file` is your image/file Blob
+formData.append("upload_preset", UPLOAD_PRESET); // THIS IS REQUIRED
+
+const xhr = new XMLHttpRequest();
+xhr.open("POST", `https://api.cloudinary.com/v1_1/dfoeih4xx/upload`, true);
+
+xhr.onload = () => {
+  if (xhr.status === 200) {
+    const response = JSON.parse(xhr.responseText);
+    resolve(response.secure_url); // or however you want to handle the response
+  } else {
+    try {
+      const errorResponse = JSON.parse(xhr.responseText);
+      console.error("Cloudinary error:", errorResponse);
+      reject(new Error(`Upload failed: ${errorResponse.error.message}`));
+    } catch (parseError) {
+      console.error("Failed to parse Cloudinary error", parseError);
+      reject(new Error("Upload failed: Unknown error"));
     }
-  };
+  }
+};
+
+xhr.onerror = () => reject(new Error("Upload failed: Network error"));
+
+xhr.send(formData);
+  }
   
   return (
     <div className="bg-pink-50 min-h-screen font-sans text-gray-800">
