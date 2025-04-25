@@ -20,7 +20,7 @@ function Navbar() {
       {/* Navbar */}
       <nav className="bg-pink-500 shadow-md fixed top-0 left-0 w-full z-50">
         <div className="max-w-6xl mx-auto px-6 md:px-12 flex justify-between items-center h-16">
-          <h1 className="text-4xl italic font-serif font-bold text-white">Chioma & Mbiatke</h1>
+          <h1 href="/"className="text-4xl italic font-serif font-bold text-white cursor-pointer">Chioma & Mbiatke</h1>
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-6 text-gray-700">
             <li>

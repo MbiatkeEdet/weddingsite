@@ -674,35 +674,39 @@ export default function Home() {
     setUploadProgress(0);
   
     const CLOUD_NAME = "dfoeih4xx";
-const UPLOAD_PRESET = "ml_default";
+    const UPLOAD_PRESET = "wedding_unsigned";
 
-const formData = new FormData();
-formData.append("file", files); // `file` is your image/file Blob
-formData.append("upload_preset", UPLOAD_PRESET); // THIS IS REQUIRED
-
-const xhr = new XMLHttpRequest();
-xhr.open("POST", `https://api.cloudinary.com/v1_1/dfoeih4xx/upload`, true);
-
-xhr.onload = () => {
-  if (xhr.status === 200) {
-    const response = JSON.parse(xhr.responseText);
-    resolve(response.secure_url); // or however you want to handle the response
-  } else {
+    const file = files[0]; // Only handling one file for now
+  
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", UPLOAD_PRESET);
+  
     try {
-      const errorResponse = JSON.parse(xhr.responseText);
-      console.error("Cloudinary error:", errorResponse);
-      reject(new Error(`Upload failed: ${errorResponse.error.message}`));
-    } catch (parseError) {
-      console.error("Failed to parse Cloudinary error", parseError);
-      reject(new Error("Upload failed: Unknown error"));
+      const response = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`, {
+        method: "POST",
+        body: formData,
+      });
+  
+      const data = await response.json();
+  
+      if (!response.ok) {
+        const errorMessage = data?.error?.message || "Unknown error during upload";
+        console.error("Cloudinary upload error:", errorMessage);
+        throw new Error(errorMessage);
+      }
+  
+      console.log("Upload successful:", data.secure_url);
+      // Do something with the URL, like setImageUrl(data.secure_url)
+    } catch (error) {
+      console.error("Upload failed:", error.message);
+      // Optionally show a toast or error message
+    } finally {
+      setIsUploading(false);
     }
-  }
-};
-
-xhr.onerror = () => reject(new Error("Upload failed: Network error"));
-
-xhr.send(formData);
-  }
+  };
+  
+  
   
   return (
     <div className="bg-pink-50 min-h-screen font-sans text-gray-800">
@@ -714,7 +718,7 @@ xhr.send(formData);
       {/* Navigation */}
       <nav className="bg-pink-500 shadow-md fixed top-0 left-0 w-full z-50">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-4xl italic font-serif font-bold text-white">Chioma & Mbiatke</h1>
+          <h1 href='/'className="text-4xl italic font-serif font-bold text-white">Chioma & Mbiatke</h1>
           
           <div className="hidden md:flex space-x-8">
             {['Home', 'Story', 'Gallery', 'Gift', 'Direction'].map((item) => (
