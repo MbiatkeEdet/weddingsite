@@ -674,8 +674,7 @@ export default function Home() {
     setUploadProgress(0);
   
     const CLOUD_NAME = "dfoeih4xx";
-    const UPLOAD_PRESET = "wedding_unsigned";
-
+    const UPLOAD_PRESET = "ml_default";
     const file = files[0]; // Only handling one file for now
   
     const formData = new FormData();
